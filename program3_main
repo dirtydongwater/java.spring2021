@@ -1,0 +1,72 @@
+public class EmployeeFile
+{
+   private String firstName; // instance variable that stores the first name
+   private String lastName; // instance variable that stores the last name
+   private double monthlySalary; // instance variable
+
+   // constructor initializes firstName, lastName and monthlySalary with String and double supplied as argument
+   public EmployeeFile(String firstName, String lastName, double monthlySalary)
+   {
+      this.firstName = firstName; //assign firstName into instance variable
+      this.lastName = lastName; //assign lastName into instance variable
+      this.monthlySalary = monthlySalary; //assign monthlySalary into instance variable
+
+      // if the monthly salary is not positive, set it to 0.0.
+      if (monthlySalary < 0.0)
+         this.monthlySalary = 0.0;
+   } // end constructor
+
+   // method to set the first name
+   public void setFirstName(String firstName)
+   {
+      this.firstName = firstName;   // store the first name
+
+   } // end method setFirstName
+
+   // method to get first name
+   public String getFirstName()
+   {
+      return firstName;
+   } // end method getFirstName
+
+   // method to set the last name
+   public void setLastName(String lastName)
+   {
+      this.lastName = lastName;  // store the last name
+   } // end method setLastName
+
+   // method to get last name
+   public String getLastName()
+   {
+      return lastName;
+   } // end method getLastName
+
+   // method to set the monthly salary
+   public void setMonthlySalary(double monthlySalary)
+   {
+      this.monthlySalary = monthlySalary; // store the monthly salary
+
+   } // end method setMonthlySalary
+
+   // method to get monthly salary
+   public double getMonthlySalary()
+   {
+      return monthlySalary;
+   } // end method getMonthlySalary
+
+   // method to retrieve yearly salary
+   public double getYearlySalary()
+   {
+      double yearlySalary = monthlySalary * 12;
+      return yearlySalary;
+   } // end method getYearlySalary
+
+   // method to retrieve yearly salary after giving 20% raise
+   public double getRaiseSalary()
+   {
+      double raise =  monthlySalary * 0.2 ;
+      double raiseSalary = ( monthlySalary + raise ) * 12;
+      return raiseSalary;
+   } // end method getRaiseSalary
+
+} // end class Employee
