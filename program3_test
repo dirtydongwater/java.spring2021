@@ -1,0 +1,19 @@
+public class Employee_Test {
+    public static void main(String[] args) {
+        EmployeeFile emp1 = new EmployeeFile("John", "Doe", 2875.00 );
+        EmployeeFile emp2 = new EmployeeFile("Jane", "Doe", 3150.75 );
+
+        //display employees initial salary
+        System.out.printf("Yearly salary of %s %s $%.2f\n", emp1.getFirstName(), emp1.getLastName(), emp1.getYearlySalary() );
+        System.out.printf("Yearly salary of %s %s $%.2f\n", emp2.getFirstName(), emp2.getLastName(), emp2.getYearlySalary() );
+
+        System.out.println();
+
+        //display employees salary after raises
+        System.out.println("20% raise for each employee:");
+        System.out.println("___________________________________");
+        System.out.printf("Yearly salary of %s %s $%.2f\n", emp1.getFirstName(), emp1.getLastName(), emp1.getRaiseSalary() );
+        System.out.printf("Yearly salary of %s %s $%.2f\n", emp2.getFirstName(), emp2.getLastName(), emp2.getRaiseSalary() );
+
+    }//end of main
+}//end of Employee_Test class
