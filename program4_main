@@ -1,0 +1,106 @@
+import java.util.Scanner;
+
+public class Program4 { //program 4 public class
+    public static void main(String[] args) { // main class
+
+        //variables
+        int id_number;
+        int hours_worked;
+        double hourly_pay;
+
+        developerInfo();
+        //scanner
+        Scanner input = new Scanner(System.in);
+
+        //input employee's info
+        System.out.println("Enter Employee ID: ");
+        id_number = input.nextInt(); //get the id number
+
+        System.out.println("Enter the hourly rate of pay: ");
+        hourly_pay = input.nextDouble(); //get the hourly rate
+
+        System.out.println("Enter the hours worked for the week: ");
+        hours_worked = input.nextInt(); //get hours worked in the week
+
+        //double regular_pay = hourly_pay *hours_worked;
+        double overtime_pay = 0.00;
+        double tax = 0.0;
+        double deductions = 30;
+        double gross_pay = 0.0;
+        double net_pay;
+        double regular_pay = 0;
+        int overtime_hours;
+        double overtime_rate;
+
+        if (hours_worked <= 40){ //if worked 40 hours or less
+            //System.out.println("Regular Work Hours: " +hours_worked);
+            //
+            regular_pay = hours_worked * hourly_pay;
+            gross_pay = regular_pay;
+            overtime_hours = 0;
+        }
+
+
+        if (hours_worked > 40){ //if hours worked are greater than 40
+            overtime_hours = (hours_worked - 40); //then calculate overtime hours
+            regular_pay = hourly_pay * 40; //regular 40 hr pay
+            overtime_rate = (hourly_pay * 1.5); //hourly rate for overtime
+            overtime_pay = overtime_rate * overtime_hours; //overtime pay amount
+            gross_pay = regular_pay + overtime_pay; //add to regular work week pay to get full gross before deductions
+            //overtime_pay = ((hourly_pay * 1.5) * (hours_worked - 40));
+        }
+        else{
+            //else overtime is 0
+            overtime_hours = 0;
+            System.out.println("Overtime Hours: 0");
+
+        }
+
+
+        //Condition for Gross pay
+        if (gross_pay < 600){ //if gross pay is less than 600
+            tax = 0.0; //no income tax
+            net_pay = gross_pay - deductions; // net pay is just gross-deductions ($30)
+        }
+        else { // if gross pay IS MORE than 600
+            tax = 0.125 * gross_pay; // take 12.5% of gross pay
+            deductions =  0.125 * gross_pay + 30;// deductions now include income tax
+            net_pay = gross_pay - deductions;
+        }
+
+
+
+        //display output
+        System.out.println("ID Number: " +id_number );
+        System.out.printf("Pay Rate: $%.2f%n", hourly_pay );
+        System.out.println("Regular Hours: 40" );
+        System.out.println("Overtime Hours: " +overtime_hours);
+        System.out.println("Total Hours: " +hours_worked );
+        System.out.printf("Regular Pay: $%.2f%n", regular_pay );
+        System.out.printf("Overtime Pay: $%.2f%n", overtime_pay );
+        System.out.printf("Gross Pay: $%.2f%n", gross_pay );
+        System.out.printf("Tax: $%.2f%n", tax );
+        System.out.printf("Deductions: $%.2f%n", deductions );
+        System.out.printf("Net Pay: $%.2f%n", net_pay );
+
+    } //end of main class
+
+    //***************************************************************
+    //
+    //  Method:       developerInfo
+    //
+    //  Description:  The developer information method of the program
+    //
+    //  Parameters:   None
+    //
+    //  Returns:      N/A
+    //
+    //**************************************************************
+    public static void developerInfo()
+    {
+        System.out.println("Name:    ");
+        System.out.println("Course:  Object-Oriented Programming");
+        System.out.println("Program: Four \n");
+
+    } // End of developerInfo
+} //end of program4 class
