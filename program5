@@ -1,0 +1,83 @@
+import java.util.Scanner;
+public class Program5 {
+
+    public static void main(String[] args) {
+        //ask user for quantity sold. package = $109
+        //validate quantity sold (make sure not negative)
+        //use if statements for the quantity choices & corresponding discounts. (switch not allowed)
+        //calculate total cost of purchase including discount
+        //print # of units
+        //print discount % applied
+        //print discount in $$ form (units_sold *  discount)
+        //print the total
+        
+        //variables
+        int units_sold = 0;
+        double discount = 0.0;
+        double unit_cost = 109.00;
+        double total = 0.0; //units_sold * unit_cost
+        double savings = 0.0; //units_sold * discount
+        double final_price = 0.0; //total + savings
+
+        developerInfo();
+        //scanner
+        Scanner input = new Scanner(System.in);
+
+        //input units sold info
+        System.out.println("Number units purchased: ");
+        units_sold = input.nextInt();
+
+        //make sure units sold isnt negative
+        if (units_sold < 0)
+            System.out.println("You did not enter a valid amount. Program is now ending. Goodbye.");
+
+        //if, else if statements for tables
+        if (units_sold >= 200)
+            discount = 48;
+        else if (units_sold >= 121 && units_sold <= 199)
+            discount = 42;
+        else if (units_sold >= 91 && units_sold <= 120)
+            discount = 36;
+        else if (units_sold >= 66 && units_sold <= 90)
+            discount = 27;
+        else if (units_sold >= 40 && units_sold <= 65)
+            discount = 20;
+        else if (units_sold >= 10 && units_sold <= 39)
+            discount = 10;
+        else {
+            discount = 0;
+        }
+
+        //total price = units sold * cost
+        total = units_sold * unit_cost;
+        //discount percent to total price
+        savings = total * (discount/100);
+        //subtract savings from total price to get final price
+        final_price = total - savings;
+
+        System.out.println("Number of units purchased:" + units_sold);
+        System.out.println("Discount applied is: "+discount+"%");
+        System.out.printf("Total savings due to discount: $%.2f%n", savings);
+        System.out.printf("Total cost of the purchase: $%.2f%n", final_price);
+
+    } //end of main class
+
+    //***************************************************************
+    //
+    //  Method:       developerInfo
+    //
+    //  Description:  The developer information method of the program
+    //
+    //  Parameters:   None
+    //
+    //  Returns:      N/A
+    //
+    //**************************************************************
+    public static void developerInfo()
+    {
+        System.out.println("Name:    ");
+        System.out.println("Course:  Object-Oriented Programming");
+        System.out.println("Program: Five \n");
+
+    } // End of developerInfo
+} //end of program5 class
