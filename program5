@@ -30,6 +30,7 @@ public class Program5 {
         //make sure units sold isnt negative
         if (units_sold < 0)
             System.out.println("You did not enter a valid amount. Program is now ending. Goodbye.");
+            System.exit(0);
 
         //if, else if statements for tables
         if (units_sold >= 200)
