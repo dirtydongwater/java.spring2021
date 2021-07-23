@@ -10,11 +10,13 @@ public class Program5 {
         //print discount % applied
         //print discount in $$ form (units_sold *  discount)
         //print the total
+
+        //conts
+        static final double unit_cost = 109.00;
         
         //variables
         int units_sold = 0;
         double discount = 0.0;
-        double unit_cost = 109.00;
         double total = 0.0; //units_sold * unit_cost
         double savings = 0.0; //units_sold * discount
         double final_price = 0.0; //total + savings
@@ -28,31 +30,20 @@ public class Program5 {
         units_sold = input.nextInt();
 
         //make sure units sold isnt negative
-        if (units_sold < 0)
-            System.out.println("You did not enter a valid amount. Program is now ending. Goodbye.");
-            System.exit(0);
-
-        //if, else if statements for tables
-        if (units_sold >= 200)
-            discount = 48;
-        else if (units_sold >= 121 && units_sold <= 199)
-            discount = 42;
-        else if (units_sold >= 91 && units_sold <= 120)
-            discount = 36;
-        else if (units_sold >= 66 && units_sold <= 90)
-            discount = 27;
-        else if (units_sold >= 40 && units_sold <= 65)
-            discount = 20;
-        else if (units_sold >= 10 && units_sold <= 39)
-            discount = 10;
-        else {
-            discount = 0;
+        While (units_sold < 0){
+            System.out.println("You did not enter a valid amount. Please enter a valid number (>=0)");
+            units_sold = input.nextInt();
         }
+
+        // discount by units
+        discount =assing_discount( units_sold );
+
+        //Operations
 
         //total price = units sold * cost
         total = units_sold * unit_cost;
-        //discount percent to total price
-        savings = total * (discount/100);
+        
+        savings=total * (discount/100);
         //subtract savings from total price to get final price
         final_price = total - savings;
 
@@ -81,4 +72,39 @@ public class Program5 {
         System.out.println("Program: Five \n");
 
     } // End of developerInfo
+
+
+    //***************************************************************
+    //
+    //  Method:       assing_discount
+    //
+    //  Description:  Assing a discount by a n units
+    //
+    //  Parameters:   int units
+    //
+    //  Returns:      double
+    //
+    //**************************************************************
+    public static double assing_discount(int units)
+    {
+       //if, else if statements for tables
+        if (units < 10)
+            return 0;
+        else if (units < 40)
+            return 10;
+        else if (units < 66)
+            return 20;
+        else if (units < 91)
+            return 27;
+        else if (units < 121)
+            return 36;
+        else if (units < 200)
+            return 42;
+        else {
+            return 48;
+        }
+        }
+
+    } // End of developerInfo
+
 } //end of program5 class
